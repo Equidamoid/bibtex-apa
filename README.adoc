@@ -1,0 +1,18 @@
+== `apaakin`: APA-style bibtex bibliography
+
+=== Usage:
+Add the following to your preamble:
+
+....
+\usepackage{apaakin}
+\bibliographystyle{apaakin}
+....
+
+Make sure the paths are correct. For example, if you `git clone` this repository to the root of your project,
+don't forget the directory name.
+
+....
+\usepackage{bibtex-apa/apaakin}
+\bibliographystyle{bibtex-apa/apaakin}
+....
+
