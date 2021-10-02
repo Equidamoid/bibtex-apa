@@ -1,4 +1,5 @@
-% BibTeX `apalike' bibliography style (version 0.99a, 8-Dec-10), adapted from
+% BibTeX `apaakin' bibliography style, derived from the `apalike' style
+% (version 0.99a, 8-Dec-10), adapted from
 % the `alpha' style, version 0.99a; for BibTeX version 0.99a.
 %
 % Copyright (C) 1988, 2010 Oren Patashnik.
