@@ -62,6 +62,8 @@ ENTRY
     series
     title
     type
+    url
+    doi
     volume
     year
   }
@@ -480,6 +482,32 @@ FUNCTION {format.incoll.inproc.crossref}
   " \cite{" * crossref * "}" *
 }
 
+% TODO: make a `format.url` function to be used as usual `format.xxx output`
+FUNCTION {output.url}
+{
+  url missing$
+    {
+    }
+    {
+      new.block
+      "\url{"  url * "}" * output
+    }
+  if$
+}
+% TODO: make a `format.doi` function to be used as usual `format.xxx output`
+FUNCTION {output.doi}
+{
+  doi missing$
+    {
+        output.url
+    }
+    {
+      new.block
+      "\url{https://doi.org/" doi * "}" * output
+    }
+  if$
+}
+
 FUNCTION {article}
 { output.bibitem
   format.authors "author" output.check
@@ -498,6 +526,7 @@ FUNCTION {article}
   if$
   new.block
   note output
+  output.doi
   fin.entry
 }
 
@@ -532,6 +561,7 @@ FUNCTION {book}
   format.edition output
   new.block
   note output
+  output.doi
   fin.entry
 }
 
@@ -547,6 +577,7 @@ FUNCTION {booklet}
   address output
   new.block
   note output
+  output.doi
   fin.entry
 }
 
@@ -583,6 +614,7 @@ FUNCTION {inbook}
   format.edition output
   new.block
   note output
+  output.doi
   fin.entry
 }
 
@@ -610,6 +642,7 @@ FUNCTION {incollection}
   if$
   new.block
   note output
+  output.doi
   fin.entry
 }
 
@@ -637,6 +670,7 @@ FUNCTION {inproceedings}
   if$
   new.block
   note output
+  output.doi
   fin.entry
 }
 
@@ -655,6 +689,7 @@ FUNCTION {manual}
   format.edition output
   new.block
   note output
+  output.doi
   fin.entry
 }
 
@@ -671,6 +706,7 @@ FUNCTION {mastersthesis}
   address output
   new.block
   note output
+  output.doi
   fin.entry
 }
 
@@ -701,6 +737,7 @@ FUNCTION {phdthesis}
   address output
   new.block
   note output
+  output.doi
   fin.entry
 }
 
@@ -719,6 +756,7 @@ FUNCTION {proceedings}
   publisher output                              % here
   new.block
   note output
+  output.doi
   fin.entry
 }
 
@@ -735,6 +773,7 @@ FUNCTION {techreport}
   address output
   new.block
   note output
+  output.doi
   fin.entry
 }
 
